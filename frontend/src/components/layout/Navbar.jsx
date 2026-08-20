@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { Menu, X, Sparkles } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Container } from "./Container";
 import { cn } from "../../lib/utils";
 
@@ -23,10 +23,8 @@ export function Navbar() {
       </a>
       <Container className="flex h-16 items-center justify-between">
         <Link to="/" className="flex items-center gap-2 font-semibold text-gray-900">
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-600 text-white">
-            <Sparkles className="h-4 w-4" aria-hidden="true" />
-          </span>
-          Nexova Services
+          <img src="/logo.png" alt="" className="h-9 w-9 rounded-md object-contain" />
+          CONNECTA
         </Link>
 
         <nav className="hidden items-center gap-1 md:flex" aria-label="Navigation principale">

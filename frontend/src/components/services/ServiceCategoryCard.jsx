@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Card, CardBody } from "../ui/Card";
-import { getCategoryIcon } from "../../lib/categories";
+import { getCategoryIcon, getCategoryAccent } from "../../lib/categories";
 
 export function ServiceCategoryCard({ category }) {
   const Icon = getCategoryIcon(category.icon);
+  const accent = getCategoryAccent(category.slug);
 
   return (
     <Card
@@ -13,7 +14,10 @@ export function ServiceCategoryCard({ category }) {
       className="group block transition-shadow hover:shadow-card-hover"
     >
       <CardBody className="flex flex-col gap-3">
-        <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-brand-50 text-brand-700">
+        <span
+          className="flex h-11 w-11 items-center justify-center rounded-lg"
+          style={{ backgroundColor: accent.bg, color: accent.text }}
+        >
           <Icon className="h-5 w-5" aria-hidden="true" />
         </span>
         <div>

@@ -9,7 +9,7 @@ import { RequestFormModal } from "../components/services/RequestFormModal";
 import { Button } from "../components/ui/Button";
 import { Skeleton } from "../components/ui/Skeleton";
 import { ErrorState } from "../components/ui/EmptyState";
-import { getCategoryIcon } from "../lib/categories";
+import { getCategoryIcon, getCategoryAccent } from "../lib/categories";
 import { ChevronRight } from "lucide-react";
 
 export function CategoryPage() {
@@ -33,6 +33,7 @@ export function CategoryPage() {
     () => getCategoryIcon(categoryQuery.data?.icon),
     [categoryQuery.data?.icon]
   );
+  const accent = useMemo(() => getCategoryAccent(slug), [slug]);
 
   if (categoryQuery.isError) {
     return (
@@ -69,7 +70,10 @@ export function CategoryPage() {
 
           <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
             <div className="flex items-start gap-3">
-              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-brand-50 text-brand-700">
+              <span
+                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg"
+                style={{ backgroundColor: accent.bg, color: accent.text }}
+              >
                 <Icon className="h-5 w-5" aria-hidden="true" />
               </span>
               <div>

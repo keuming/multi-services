@@ -55,4 +55,4 @@ const port = Number(process.env.PORT ?? 4100);
 server.listen(port);
 
 // eslint-disable-next-line no-console
-console.log(`Nexova Services API (tRPC) écoute sur http://localhost:${port}`);
+console.log(`CONNECTA API (tRPC) écoute sur http://localhost:${port}`);

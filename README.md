@@ -1,4 +1,4 @@
-# Nexova Services
+# CONNECTA
 
 Plateforme multiservice (véhicules, matériaux de construction, artisans/RH,
 ramassage des ordures, gaz, plans de construction, bétail) — **v1 : catalogue

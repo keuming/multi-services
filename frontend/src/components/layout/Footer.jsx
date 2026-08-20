@@ -6,10 +6,10 @@ export function Footer() {
     <footer className="border-t border-gray-200 bg-white">
       <Container className="flex flex-col gap-4 py-10 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <p className="font-semibold text-gray-900">Nexova Services</p>
+          <p className="font-semibold text-gray-900">CONNECTA</p>
           <p className="mt-1 text-sm text-gray-500">
-            Plateforme multiservice — véhicules, matériaux, artisans, ordures, gaz,
-            plans de construction et bétail.
+            Location • Agrégats • Artisans • Bétail — et bien plus : matériaux,
+            ramassage des ordures, gaz, plans de construction.
           </p>
         </div>
         <nav aria-label="Liens de pied de page" className="flex gap-6 text-sm text-gray-600">
@@ -22,7 +22,7 @@ export function Footer() {
         </nav>
       </Container>
       <Container className="border-t border-gray-100 py-4 text-xs text-gray-400">
-        © {new Date().getFullYear()} Nexova Services — Compagnie des Services
+        © {new Date().getFullYear()} CONNECTA — Compagnie des Services
         Numériques (CSN).
       </Container>
     </footer>

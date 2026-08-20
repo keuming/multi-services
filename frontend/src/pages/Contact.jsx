@@ -10,7 +10,7 @@ export function Contact() {
   return (
     <Container className="py-14">
       <div className="max-w-xl">
-        <h1 className="text-2xl font-bold text-gray-900">Contactez Nexova Services</h1>
+        <h1 className="text-2xl font-bold text-gray-900">Contactez CONNECTA</h1>
         <p className="mt-2 text-gray-600">
           Une question, un partenariat, ou besoin d'aide pour trouver un
           prestataire ? Notre équipe vous répond rapidement.
@@ -27,7 +27,7 @@ export function Contact() {
           </div>
           <div className="flex items-center gap-3">
             <Mail className="h-5 w-5 text-brand-600" aria-hidden="true" />
-            <dd>contact@nexova-services.com</dd>
+            <dd>contact@connecta-services.com</dd>
           </div>
         </dl>
 
