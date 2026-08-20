@@ -1,9 +1,23 @@
-import "dotenv/config";
 import { createServer } from "node:http";
 import cors from "cors";
 import { createHTTPHandler } from "@trpc/server/adapters/standalone";
 import { appRouter } from "./router/index.js";
 import { createContext } from "./router/trpc.js";
+
+// dotenv is only needed to read a local .env file during `npm run dev` /
+// `npm run db:seed` on a developer machine. On Vercel, environment variables
+// are already injected into process.env at runtime, and Vercel's bundler for
+// the captured Node.js server can't reliably trace the "dotenv/config"
+// subpath import — so we load it conditionally instead of as a static
+// top-level import, and never fail the server if it's unavailable.
+if (!process.env.VERCEL) {
+  try {
+    await import("dotenv/config");
+  } catch {
+    // dotenv not installed / not resolvable — fine, env vars are assumed to
+    // already be set some other way (e.g. exported in the shell).
+  }
+}
 
 const allowedOrigins = (process.env.CORS_ORIGIN ?? "http://localhost:5173")
   .split(",")
