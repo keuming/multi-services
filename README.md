@@ -76,6 +76,24 @@ npm run dev   # http://localhost:5173
   (skeletons calés sur la mise en page finale), erreur (avec bouton
   Réessayer) et vide (message contextuel), via `ListingGrid`.
 
+## Déploiement (Vercel Services)
+
+Le fichier `vercel.json` à la racine déclare `frontend` et `backend` comme
+deux services d'un même projet Vercel (fonctionnalité **Vercel Services**,
+beta depuis juin 2026), servis sur un seul domaine :
+- `/api/*` → service `backend`
+- tout le reste → service `frontend`
+
+Variables d'environnement à définir dans le dashboard Vercel :
+- **backend** : `DATABASE_URL` (chaîne Neon)
+- **frontend** : `VITE_API_URL=/api` (chemin relatif, même domaine que le backend)
+
+Le backend est un serveur Node.js classique (`backend/src/server.ts`, avec
+`server.listen()`) — Vercel le détecte automatiquement comme "Node.js
+server" sans configuration supplémentaire. Comme Vercel Services route la
+requête vers `/api/...` sans retirer ce préfixe, `server.ts` le retire lui-même
+côté backend avant de le transmettre à tRPC.
+
 ## Prochaines étapes suggérées
 
 - Authentification admin + CRUD des `listings`/`providers` (actuellement
