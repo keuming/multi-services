@@ -19,15 +19,23 @@ export function Contact() {
         <dl className="mt-8 space-y-4 text-sm">
           <div className="flex items-center gap-3">
             <MapPin className="h-5 w-5 text-brand-600" aria-hidden="true" />
-            <dd>Cocody Riviera 2, Immeuble Paul, Abidjan</dd>
+            <dd>Belle Vue Rond Point, Commune de Dixinn</dd>
           </div>
           <div className="flex items-center gap-3">
             <Phone className="h-5 w-5 text-brand-600" aria-hidden="true" />
-            <dd>+224 620 00 00 00</dd>
+            <dd>
+              <a href="tel:+224623767616" className="hover:text-brand-700">
+                +224 623 76 76 16
+              </a>
+            </dd>
           </div>
           <div className="flex items-center gap-3">
             <Mail className="h-5 w-5 text-brand-600" aria-hidden="true" />
-            <dd>contact@connecta-services.com</dd>
+            <dd>
+              <a href="mailto:contact@connecta-services.com" className="hover:text-brand-700">
+                contact@connecta-services.com
+              </a>
+            </dd>
           </div>
         </dl>
 

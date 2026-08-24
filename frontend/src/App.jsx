@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import { TopBar } from "./components/layout/TopBar";
 import { Navbar } from "./components/layout/Navbar";
 import { Footer } from "./components/layout/Footer";
 import { Home } from "./pages/Home";
@@ -11,6 +12,7 @@ import { NotFound } from "./pages/NotFound";
 export function App() {
   return (
     <div className="flex min-h-screen flex-col">
+      <TopBar />
       <Navbar />
       <main id="main-content" className="flex-1">
         <Routes>
