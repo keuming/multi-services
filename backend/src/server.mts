@@ -6,4 +6,4 @@ if (!process.env.VERCEL) {
   }
 }
 
-await import("./app.js");
+await import("./app.mjs");
