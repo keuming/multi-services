@@ -4,11 +4,12 @@
   "type": "module",
   "scripts": {
     "dev": "tsx watch src/server.mts",
-    "build": "tsc -p tsconfig.json",
+    "build": "npm run typecheck && esbuild src/server.mts --bundle --platform=node --format=esm --target=node20 --outfile=dist/server.mjs --banner:js=\"import { createRequire as __createRequire } from 'module'; const require = __createRequire(import.meta.url);\"",
     "start": "node dist/server.mjs",
     "db:generate": "drizzle-kit generate",
     "db:push": "drizzle-kit push",
-    "db:seed": "tsx src/db/seed.ts"
+    "db:seed": "tsx src/db/seed.ts",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
     "@neondatabase/serverless": "^0.9.5",
@@ -22,6 +23,7 @@
     "@types/node": "^22.5.5",
     "@types/ws": "^8.5.12",
     "drizzle-kit": "^0.24.2",
+    "esbuild": "0.19.2",
     "tsx": "^4.19.1",
     "typescript": "^5.6.2"
   },
