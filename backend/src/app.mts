@@ -1,4 +1,4 @@
-import { createServer } from "node:http";
+import { createServer, type IncomingMessage, type ServerResponse } from "node:http";
 import { createHTTPHandler } from "@trpc/server/adapters/standalone";
 import { appRouter } from "./router/index.js";
 import { createContext } from "./router/trpc.js";
@@ -7,7 +7,7 @@ const allowedOrigins = (process.env.CORS_ORIGIN ?? "http://localhost:5173")
   .split(",")
   .map((origin) => origin.trim());
 
-function applyCors(req, res) {
+function applyCors(req: IncomingMessage, res: ServerResponse) {
   const origin = req.headers.origin;
   if (origin && (allowedOrigins.includes("*") || allowedOrigins.includes(origin))) {
     res.setHeader("Access-Control-Allow-Origin", origin);
@@ -23,13 +23,13 @@ const trpcHandler = createHTTPHandler({
   createContext,
 });
 
-function stripApiPrefix(url) {
+function stripApiPrefix(url?: string) {
   if (url === "/api") return "/";
   if (url?.startsWith("/api/")) return url.slice(4);
   return url;
 }
 
-const server = createServer((req, res) => {
+const server = createServer((req: IncomingMessage, res: ServerResponse) => {
   req.url = stripApiPrefix(req.url);
   applyCors(req, res);
 
